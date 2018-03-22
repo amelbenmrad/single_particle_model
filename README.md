@@ -1,1 +1,1 @@
-# thermopoly
+# My personal thermopoly project
