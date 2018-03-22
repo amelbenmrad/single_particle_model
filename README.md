@@ -1,1 +1,2 @@
-# My personal thermopoly project
+# My single particle model
+--------------------------
