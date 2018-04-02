@@ -6,7 +6,7 @@ r_pol = sol(:,:,4); % [m]
 %% Rayon de la particule
 figure
 hold all
-plot(t,P.r_pol0+sum(r_pol-x,2),'LineWidth',2)
+plot(t,P.r_pol0+sum(r_pol-x,2),'LineWidth',2)   %sum(A,2) = vecteur colonne contenant la somme des lignes du vecteur A
 xlabel('Time (s)','fontsize',12,'fontweight','b','fontname','arial')
 ylabel('Particle radius (m)','fontsize',12,'fontweight','b','fontname','arial')
 % axis([0 inf 20 inf])
@@ -72,14 +72,14 @@ set(gca,'FontSize',12,'fontweight','b','fontname','arial')
 
 figure
 hold all
-plot(t,C2(:,end),'LineWidth',2)
-plot(t,C2(:,round(length(x)/2)),'k--','LineWidth',2)
-plot(t,C2(:,1),'m:','LineWidth',2)
-legend('R', 'R/2','Center')
-xlabel('Time (s)','fontsize',12,'fontweight','b','fontname','arial')
-ylabel('C2','fontsize',12,'fontweight','b','fontname','arial')
+plot(t, C2(:,end), 'LineWidth',2)   %Linewidth = largeur de la ligne
+plot(t, C2(:,round(length(x)/2)), 'k--', 'LineWidth', 2) % round = arrondi au plus haut
+plot(t, C2(:,1), 'm:','LineWidth', 2)
+legend('R', 'R/2', 'Center')
+xlabel('Time (s)', 'fontsize', 12, 'fontweight', 'b', 'fontname', 'arial')
+ylabel('C2', 'fontsize', 12, 'fontweight', 'b', 'fontname', 'arial')
 % axis([0 inf 20 inf])
-set(gca,'FontSize',12,'fontweight','b','fontname','arial')
+set(gca, 'FontSize', 12, 'fontweight', 'b', 'fontname', 'arial')
 
 %% %%%DISPLAYPLOTS TEMPERATURE%%%%%
 

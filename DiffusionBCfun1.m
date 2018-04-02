@@ -12,10 +12,9 @@ function [pl, ql, pr, qr] = DiffusionBCfun1(xl, ul, xr, ur, t, P)
        %%%Nicollela correllation%%%
 %     Pr = (P.mu_g * P.Cp_g) / P.kc_g;
 %     h = (P.kc_g / (2 * P.R_pol)) * (2 + 0.265 * ((2 * P.R_pol * P.epsi_s)/(P.mu_g / P.rho_g)^0.241) * Pr^(1/3));    %(J/m2/s/K)
-%     h=300;
 
     %% %%%%% PDE COEFFICIENT %%%%%
-    %    [M1;                 M2,                   T]
+    %    [M1;                 M2,                   T                   r_pol]
     pl = [0;                  0;                    0   ;               0];
     ql = [1 / P.D_1;          1 / P.D_2;            1 / P.kc_ov;        1];
     pr = [ur(1) - P.C1_eq;    ur(2) - P.C2_eq;      h * (ur(3) - P.Tb); 0];

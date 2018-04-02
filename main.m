@@ -22,22 +22,22 @@ t=[0:.5:1];      % [s]
 sol = pdepe(m, @DiffusionPDEfun1, @DiffusionICfun1, @DiffusionBCfun1, x, t, [], P);
 
 
-%% Boucle
-%========
-for k=2:100 % s
-    res.sol=[sol(1,:,:);sol(end,:,:)];
-    res.CI2=sol(end,:,:);
-    r_pol = sol(end,:,4); % [m]
-    P.r_pol=P.r_pol0+sum(r_pol-x,2); % [m]
-    x = (0: P.r_pol/100: P.r_pol);         % (m)
-    res.x=x;
-    t=[k-1:0.5:k];                  % [s]
-    sol = pdepe(m, @DiffusionPDEfun1, @DiffusionICfun2, @DiffusionBCfun1, x, t, [], P);
-    
+% %% Boucle
+% %========
+% for k=2:100 % s
+%     res.sol = [sol(1,:,:); sol(end,:,:)];
+%     res.CI2 = sol(end,:,:);
+%     r_pol = sol(end,:,4);                   % [m]
+%     P.r_pol = P.r_pol0 + sum(r_pol-x,2);    % [m]
+%     x = (0: P.r_pol/100: P.r_pol);          % (m)
+%     res.x = x;
+%     t = [k-1 : 0.5 : k];                    % [s]
+%     sol = pdepe(m, @DiffusionPDEfun1, @DiffusionICfun2, @DiffusionBCfun1, x, t, [], P);
+%     
     %     r_pol = sol(end,:,4); % [m]
     %     res.r_pol(k)=P.r_pol+sum(r_pol-x,2); % [m]
     %     P.r_pol=res.r_pol(k);
 
-end
+% end
 %% 
 Displayplots
