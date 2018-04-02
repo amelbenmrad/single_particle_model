@@ -23,21 +23,21 @@ sol = pdepe(m, @DiffusionPDEfun1, @DiffusionICfun1, @DiffusionBCfun1, x, t, [], 
 
 %% Boucle
 
-for k = 2:100                               % [s]
+for k = 2:100                                   % [s]
     res.sol = [sol(1, :, :); sol(end, :, :)];   % 3 temps donc sol(1...) c'est t=0 1ere colonne et sol(end...) c'est t=1 derniere colonne
-    res.CI2 = sol(end, :, :);                 % nouvelle condition initiale est la derniere valeur de l'ancien vecteur sol(end..) du precedent
-    r_pol = sol(end, :, 4);                   % [m]       4 pour la solution de r_pol
-    P.r_pol = P.r_pol0 + sum(r_pol-x, 2);    % [m]       r_pol-x pour la translation de rpol passant par 0 ??????
-    x = (0: P.r_pol/100: P.r_pol);          % (m)
-    res.x = x;
-    t = k-1 : 0.5 : k;                    % [s] pour ca que k commence à 2 pas a 1 car dans la premiere boucle k-1 = 1
+    res.CI2 = sol(end, :, :);                   % nouvelle condition initiale est la derniere valeur de l'ancien vecteur sol(end..) du precedent
+    r_pol = sol(end, :, 4);                     % [m] 4 pour la solution de r_pol
+    P.r_pol = P.r_pol0 + sum(r_pol - x, 2);     % [m] r_pol-x pour la translation de rpol passant par 0 ??????
+    res.x = (0: P.r_pol/100: P.r_pol);          % (m)
+    t = k-1 : 0.5 : k;                          % [s] k commence à 2 pas a 1 car dans la premiere boucle k-1 = 1
     sol = pdepe(m, @DiffusionPDEfun1, @DiffusionICfun2, @DiffusionBCfun1, x, t, [], P);
     
-    r_pol = sol(end, :, 4);                % [m]
-    res.r_pol(k)= P.r_pol + sum(r_pol-x, 2); % [m]
+    r_pol = sol(end, :, 4);                     % [m]
+    res.r_pol(k) = P.r_pol + sum(r_pol - x, 2); % [m]
     P.r_pol = res.r_pol(k);
 
 end
+
 
 %%
 Displayplots
