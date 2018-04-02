@@ -1,7 +1,6 @@
-function u0 = DiffusionICfun1(x, P)
+function u0 = DiffusionICfun2(x, P)
 %pdex1ic1 permet d'implémenter une condition initiale à l'equation partielle différentielle de l'éthylène
-        %[M1(0);M2(0);T(0)]
-        global res
+    global res
         
         u0 = [interp1(res.x, res.CI2(1,:,1), x, 'pchip');
             interp1(res.x, res.CI2(1,:,2), x, 'pchip'); 

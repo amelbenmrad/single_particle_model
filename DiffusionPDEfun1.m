@@ -8,7 +8,7 @@ function [c, f, s] = DiffusionPDEfun1(x, t, u, dudx, P)
      r_pol = u(4);  % Rayon de la particule [m]
 
        
-    % P.rho_ov à calculer ici (this is variable, depnds on [M1] and [M2]!!!!!!!!!!)
+    % P.rho_ov à calculer ici (this is variable, depends on [M1] and [M2]!!!!!!!!!!)
      
     kp = P.kp_ref * exp(-P.Ea / P.R*(1 / T - 1 / P.T_ref));       % m3/mol/s
 
