@@ -13,34 +13,34 @@ function [P] = variables()
     P.delta_Hp = -107500;                   %enthalpie de polymérisation de l'éthylène (J/mol)
     
     %% %%HYDRODYNAMICS OF REACTOR%%%%
-    P.v = 0.02;                             %vitesse relative gaz-particule (m/s)
+     P.v = 0.02;                             %vitesse relative gaz-particule (m/s) (Arash 0.02, Kosek 0.2)
+    % pour étudier des vitesses différentes: v = 1 ? sin(t/2)
     
     %% %%CATALYST PHYSICAL PROPERTIES%%%%
-    P.r_cat = 0.000025;                     %rayon de particule de catalyseur initiale (m)
+    P.r_cat = 2e-5;                       %rayon de particule de catalyseur initiale (m)
     P.rho_cat = 2300;                       %densité du catalyseur (kg/m3)
-    P.R = 8.314;                            %constante des gaz parfaits (J/mol/K)
+    P.R = 8.314;                            %constante des gaz parfaits (m3.Pa/mol/K)
     
     %% %%OVERALL PARTICLE PROPERTIES%%%%
-    P.r_pol0 = 0.0001;                       %rayon de la particule de polymere seulement (sans le volume des pores) (m)
+    P.r_pol0 = 0.0001;                      %rayon de la particule de polymere seulement (sans le volume des pores) (m)
     P.epsi = 0.05;                          %porosité de la particule (-)
-    P.kc_ov = 0.2;                          %conductivité thermique de la particule (J/m.s.K)
+    P.kc_ov = 0.2;                          %conductivité thermique de la particule (J/m.s.K) (Kiparissides 0.108, Ray, et Arash =0.2)
     P.Cp_ov = 1840;                         %capacité calorifique de la particule (J/kg.K)
-    P.C1_eq = 86;                           %concentration à l'éq de l'éthylène dans particule (mol/m3)
+    P.C1_eq = 86;                           %concentration à l'éq de l'éthylène dans particule (mol/m3) comes from Sanshez Lacomb
     P.C2_eq = 122.6;                        %concentration du n-hexane dans particule (mol/m3)
     P.D_1 = 3.1e-9;                         %diffusivité totale de l'éthylène (m2/s)
     P.D_2 = 5.2e-10;                        %diffusivité totale du n-hexane (m2/s)
     P.epsi_s = 0.1;                         %viscous dissipation rate (m2/s3) (A VERIFIER !!!!!!!)
-    P.phi = P.r_pol0 / P.r_cat;              %overall growth factor (-)
     
     P.rho_ov = 869.8;                       %densité de particule (kg/m3) (this is variable, depnds on [M1] and [M2]!!!!!!!!!!)
     
     %% %%GAZ PHASE PROPERTIES%%%%
-    P.Tb = 353.15;                          %température bulk phase (K)
+    P.Tb =353.15;                          %température bulk phase (K)
     P.mu_g = 1.32e-5;                       %viscosité de la phase gaz (kg/m.s)
     P.kc_g = 2.61e-2;                       %conductivité thermique de phase gaz (J/m.s.K)
-    P.P = 7e5;                              %pressure (Pa)
+    P.P = 7e5;                              %pressure of ethylene(Pa)
     P.Mw1 = 0.028;                          %molecular weight of ethylene (kg/mol)
-    P.Cp_g =16.6;                           %capacité calorifique de la phase gaz (J/kg.K)
-    P.rho_g = 9.2;                          %densité de phase gaz (kg/m3)
+    P.Cp_g =1606;                           %capacité calorifique de la phase gaz (J/kg.K)
+    %P.rho_g = 9.2;                          %densité de phase gaz (kg/m3)
     
 end
